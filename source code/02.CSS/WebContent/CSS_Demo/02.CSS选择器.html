@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS选择器</title>
+	<style type="text/css">
+		p {
+			color:blue;
+		}
+		
+		#p1 {
+			color: red;
+		}
+		.pred {
+			/*1、直接写颜色名*/
+			/*2、写rgb值 red green blue 0-255*/
+			/*3、写16进制值 #5F3C4D*/
+			color: rgb(255,0,0);
+		}
+		#p1,.pred{
+			font-size: 35px;
+		}
+		
+	</style>
+</head>
+<!-- 
+1、标签选择器
+标签名{
+	样式……
+}
+2、id选择器：使用标签的id值选出元素
+#id值{
+	样式
+}
+3、类选择器：根据标签的类进行选择 class
+.类的值{
+	样式
+}
+4、组选择器：选一组元素，选中的这些元素全部应用
+选择器1，选择器2，...{
+	样式
+}
+
+class 规定元素的类名,把元素进行分类
+id 规定元素的唯一标识
+ -->
+<body>
+	<!-- 绝大多数的标签都具有通用的两个属性 id class -->
+	<h2>冬夜读书示子聿</h2>
+	<p id="p1">宋代•陆游</p>
+	<p>古人学问无遗力</p>
+	<p>少壮工夫老始成</p>
+	<p class="pred">纸上得来终觉浅</p>
+	<p class="pred">绝知此事要躬行</p>
+</body>
+</html>

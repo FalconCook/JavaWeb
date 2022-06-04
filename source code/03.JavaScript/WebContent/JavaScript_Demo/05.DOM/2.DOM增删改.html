@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		/* //1.修改
+		var bjEle = document.getElementById("bj");
+		//bjEle.innerText = "南京";
+		bjEle.id = "bj2";
+		var bj2 = document.getElementById("bj");
+		alert(bj2); */
+		
+		/* //2.删除bj节点 父元素.removeChild(子元素) 删除指定的子节点
+		var bjEle = document.getElementById("bj");
+		//找到要删除节点的父节点
+		var bjParent = bjEle.parentNode;
+		bjParent.removeChild(bjEle); */
+		
+		/* //3.替换 父元素.replceChild(新元素, 旧元素) 用新节点替换原有的旧子节点
+		//将北京节点替换为南京 <li>南京</li>
+		var bjEle = document.getElementById("bj");
+		//1、创建子节点-->
+		var textEle = document.createTextNode("南京");
+		//2、创建父节点-->li createElement
+		var liEle = document.createElement("li");
+		alert(textEle.nodeName + "-->" +liEle.nodeName);
+		
+		//3、将子节点加入到父节点 父元素.appendChild(子元素)	节点组装完成
+		liEle.appendChild(textEle);
+		
+		var parentUl = document.getElementById("city");
+		parentUl.replaceChild(liEle, bjEle); */
+		
+		//4.在一个节点之前插入新节点
+		//1.创建子节点-->南京 createTextNode
+		var textEle = document.createTextNode("南京");
+		//2.创建父节点-->li createElement
+		var liEle = document.createElement("li");
+		liEle.appendChild(textEle);
+		alert(textEle.nodeName + "-->" +liEle.nodeName);
+		//3.找到目标节点
+		var djEle = document.getElementById("dj");
+		//4.找到父元素
+		var cityEle = document.getElementById("city");
+		cityEle.insertBefore(liEle, djEle);
+	}
+</script>
+</head>
+<body>
+	<ul id="city">
+		<li id="bj">北京</li>
+		<li>上海</li>
+		<li id="dj">东京</li>
+		<li>首发</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM对象和jQuery对象</title>
+<script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//点击第一个按钮，字变红，使用原生dom
+		var btn01 = document.getElementById("dom2dom");
+		btn01.onclick = function(){
+			var divEleDom = document.getElementById("testDiv");
+			divEleDom.style.color = "red";
+		};
+		
+		//使用DOM对象不能操作jquery的css方法改变字颜色
+		var btn02 = document.getElementById("dom2jQuery");
+		btn02.onclick = function(){
+			var divEleDom = document.getElementById("testDiv");
+			//divEleDom.css("color","red");//错误
+			//需要转化为jQuery对象，才可以调用jQuery .css()
+			$(divEleDom).css("color","blue");
+		};
+		
+		//使用jQuery对象调用jQuery方法
+		$("#jQuery2jQuery").click(function(){
+			//找到jquery对象
+			$("#testDiv").css("color","green");
+		});
+		
+		//使用jQuery对象调用DOM方法
+		$("#jQuery2dom").click(function(){
+			//找到jquery对象
+			//$("#testDiv").style.color = "red";//这种操作是错误的
+			//我们将jquery对象转为dom对象
+			$("#testDiv")[0].style.color = "red";
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="testDiv">学习嘛，慢慢来！</div>
+	<br/>
+	<button id="dom2dom">使用DOM对象调用DOM方法</button>
+	<button id="dom2jQuery">使用DOM对象调用jQuery方法</button>
+	<button id="jQuery2jQuery">使用jQuery对象调用jQuery方法</button>
+	<button id="jQuery2dom">使用jQuery对象调用DOM方法</button>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- base标签中可以设置一个href属性，这个属性可以作为页面中所有相对路径的前缀 -->
+<!-- base标签不会对绝对路径起作用 -->
+<base href="http://localhost:8080/10_WEB_Path/" />
+</head>
+<body>
+
+	<!--http://localhost:8080/10_WEB_Path/index.html  -->
+	<a href="index.html">去index.html</a>
+	
+	<hr />
+	
+	<!--http://localhost:8080/10_WEB_Path/hello/1.html  -->
+	<!-- 实际上base标签就是可以让我们以相对路径的方式使用绝对路径 -->
+	<a href="hello/1.html">去1.html</a>
+</body>
+</html>

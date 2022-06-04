@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load03</title>
+</head>
+<body>
+	<img id="img2" src="http://www.google.com/abc.jpg"/>
+
+<!-- 写在body标签后面，能获取到button，但不符合习惯，只要写在我要获取的元素后面。
+	推荐使用，但是可能读不到实际的属性。
+ -->
+<script type="text/javascript">
+	var img = document.getElementById("img2");
+	alert(img.width);
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+1、JSTL JSP的标准标签库，极大简化开发
+2、使用
+	1）、导包
+		taglibs-standard-impl-1.2.1.jar
+		taglibs-standard-spec-1.2.1.jar
+	2）、在页面导入标签库
+		page include taglib(导入标签库的指令)
+		
+		1)、核心标签库（c标签库）
+		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+		用来导入标签库 prefix定义标签的前缀<jsp:forward> uri:标签库唯一标识
+		
+		2）、使用核心标签库
+			<c:out>用于计算一个表达式并将结果输出到当前页面		
+			value：代表要输出的内容 可以是el表达式
+			default：默认值
+			escaXml：是否转义特殊字符，默认转义
+			
+			<c:set>用于添加或者修改域中的属性
+			1、给域中设置一个属性
+				var：设置属性的key
+				value：设置属性的value
+				scope：设置在哪个域中 pageScope
+					scope="page"
+					scope="request"
+					scope="session"
+					scope="application"
+			2、修改对象的某个属性值
+				property:代表要修改的属性名
+				value:修改后的值
+				target:代表修改哪个对象
+			
+			3、<c:remove>用来移除域中的属性
+				<c:remove var="" scope=""/>
+				var:要移除的属性key
+				scope：移除哪个域中的属性，如果不指定，那么就全部移除
+				
+			4、<c:if>用于实现if语句的判断功能
+				test:就是判断条件 如果是true执行标签体里的内容，否则不执行
+				scope:判断结果保存到指定的域中
+				var:指定key
+				
+			5、<c：choose>、<c:when>、<c:otherwise>这厮一套组合
+				<c：choose>：选择。。。switch case
+				
+			6、<c:forEach>用来循环遍历
+			begin="" end="" items="" step="" var="" varStatus=""
+			begin:遍历开始位置
+			end：遍历结束位置
+			items：被遍历的东西
+			step：步长
+			var：指定遍历的当前条目的变量名
+			varStatus：遍历状态，里面封装了当前遍历所以状态信息
+			
+			<th>status.begin</th>	开始的索引
+			<th>${status.end }</th>	结束的索引
+			<th>${status.step }</th>	遍历步长
+			<th>${status.count }</th>	当前遍历个数
+			<th>${status.index }</th>	当前遍历索引
+			<th>${status.last }</th>	是否最后一个
+		
+			7、<c:url>和<c:redirect>
+		
+		3、JSTL函数库
+		fn:contains和fn:containsIgnoreCase
+	

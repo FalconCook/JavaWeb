@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>function</title>
+<script type="text/javascript">
+
+	//01.声明函数 ，方法不管在哪儿声明，浏览器都会优先加载。
+	//访问控制符 返回值类型 方法名(参数类型 参数名,参数类型 参数名){方法体}
+	//	x			x	functon	方法名(参数名,参数名){方法体}
+	function sum(a,b){
+		alert(a+b);
+	}
+	
+	//将方法赋值给一个变量	方法名就是变量名
+	var sum1 = function(a,b){
+		alert(a+b);
+		//NaN  Not a Number
+	};
+	
+	//02.调用函数  方法名（参数表）; 在js中唯一标识的是方法名，js中没有方法的重载，调用方法时候参数是可以选择的
+	sum(1,2);
+
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

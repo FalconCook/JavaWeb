@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load04</title>
+<script type="text/javascript">
+	//当文档完全加载完成以后再去执行方法
+	window.onload = function(){
+		var btn = document.getElementById("btnId");
+		btn.onclick = function(){
+			alert("你好");
+		}
+	}
+</script>
+<script type="text/javascript" src="abc.js"></script>
+<script type="text/javascript">
+	//在这里编写页面上的js代码
+</script>
+</head>
+<body>
+<!-- 
+1、写在标签事件属性里面 不推荐
+2、写在script标签里面
+	1）写在head里面 推荐（一定写在window.onload里面）
+		如果不是用window.onload，会出现找不到元素的情况
+	2）写在body闭合前 推荐
+		可以找到元素，但比如图片，iframe请求时间较长时，可能导致js代码中获取这些元素的属性时获取不到正确的属性
+3、引入外部文件 推荐使用
+ -->
+	<button id="btnId">SayHello</button>
+</body>
+</html>

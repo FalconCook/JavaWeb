@@ -1,0 +1,23 @@
+1、EL表达式
+	简化我们的开发
+1）、在页面显示域中的属性值
+	${输入属性名}
+2）、要获取对象中的某个属性直接使用.属性名的方式
+
+3）、el表达式如果获取域中的属性，直接写属性名，他会从四个域从小到大找
+		可以连点操作
+		
+4）、el	11个隐含对象 el可以取出自己指定的11个对象中的数据
+	四个域对象。是从四个域对象中取值。map
+	pageContext域中的数据 pageScope(封装了pageContext域中所有的共享数据（setAttr，getAttr）)，他是一个Map
+	request域中的数据 requestScope(封装了request域中所有的数据（setAttr，getAttr）)，他也是一个Map
+	session域中的数据 sessionScope(封装了session域中所有的数据（setAttr，getAttr）)，他也是一个Map
+	application域中的数据 applicationScope(封装了applicationScope域中所有的数据（setAttr，getAttr）)，他也是一个Map
+	el取出域中属性获取map中的key值，如果没有显示""，如果有显示相应内容
+	
+	一个非map对象
+	pageContext就是代表的jsp隐含对象中的pageContext，取出其他隐含对象
+	
+	
+5）、el表达式如何取stu-x 这些特殊命名的属性（因为会产生歧义）
+	使用[属性名]		取map中的数据可以使用.		也可以使用[key]

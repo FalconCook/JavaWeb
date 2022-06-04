@@ -1,0 +1,198 @@
+Tomcat;
+
+　　1、Tomcat是java编写的，依赖java环境
+　　　　配置tomcat需要这么几步：
+　　　　　　1）、配置JAVA_HOME环境变量
+　　　　　　　　变量名：JAVA_HOME
+　　　　　　　　变量值：F:\Develop\Java\jdk1.8.0_181（java的安装目录，jdk目录）
+　　　　　　2）、解压tomcat软件到你要安装的位置
+　　　　　　　　apache-tomcat-7.0.78-src.zip ：tomcat的源码文件
+　　　　　　　　apache-tomcat-7.0.78-windows-x64.zip：tomcat64位软件
+　　　　　　　　apache-tomcat-7.0.78-windows-x86.zip：tomcat32位软件
+　　　　　　3）、按照系统的位数解压相应文件
+　　　　　　　　解压：不要放在中文目录下。解压到当前文件夹
+
+　　　　　　======以上流程，服务器就配置成功了====
+　　　　　　如何检查我们服务器是否可以正常运行
+　　　　　　--启动服务器：
+　　　　　　　　双击startup.bat即可启动，只要启动成功。startup界面就会停在Server startup in xxx ms
+　　　　　　--访问tomcat服务器页面
+　　　　　　　　输入localhost:8080即可
+　　　　　　--特别注意：
+　　　　　　　　服务器工作期间不可以关闭cmd命令窗口。
+
+　　　　　　--问题解决：
+　　　　　　　　当服务器启动不成功的时候，启动命令窗口就会一闪而过
+　　　　　　解决办法：
+　　　　　　　　查看为什么没有启动成功：
+　　　　　　　　　　1、cd 进入tomcat/bin目录
+　　　　　　　　　　2、运行catalina run命令也是启动服务器。有错误时会有提示信息
+
+　　2、Tomcat服务器的目录结构
+　　　　bin:包含tomcat启动命令，停止tomcat命令等批处理，可执行文件..
+　　　　conf:包含的是tomcat的配置文件
+　　　　lib:tomcat运行依赖的jar包
+　　　　logs：tomcat的运行日志文件
+　　　　temp：tomcat存取临时文件的文件夹
+　　　　webapps：里面集合了所有的web项目，每一个文件夹就代表一个web项目。
+　　　　tomcat启动默认访问的是root目录。
+　　　　我们以后写好的web项目也放在webapps
+　　　　一般访问一个web项目默认都是展示index页面
+　　　　work：
+　　　　　　work保存的tomcat运行时编译好的一些文件
+
+　　3、静态web应用
+　　　　里面就是一些静态文件(.html,.css,.js,.png,....)
+　　4、动态web应用
+　　　　需要程序处理，需要数据库保存数据
+　　　　eclipse可以用开发动态web项目
+
+　　5、eclipse整合tomcat
+　　　　eclipse整合服务器后，他创建的是一个服务器镜像。
+　　　　也就在在eclipse内部保存了一个服务器的副本。
+
+　　　　1、创建一个服务器的副本
+　　　　2、修改了项目的默认发布目录
+
+　　　　　　工作空间\.metadata\.plugins\org.eclipse.wst.server.core\tmp0
+
+　　6、eclipse创建一个动态web工程
+　　　　动态web工程
+　　　　　　META-INF : 项目的基础信息（不用管）
+　　　　　　WEB-INF	:
+　　　　　　　　-lib:以后引入的所有jar包都放在lib里面，他会自动添加到buildpath
+　　　　　　　　-web.xml：整个web应用的配置信息　　　　　　　
+　　　　　　　　　　<welcome-file-list>定义的是项目启动时候默认访问的页面
+
+　　　　动态创建web：
+　　　　　　eclipse:FirstWeb
+　　　　　　　　src:	写java代码
+　　　　　　　　build:	java代码编译后class文件存放的位置
+　　　　　　　　WebContent:	网页以及一些静态文件
+　　　　　　　　META-INF
+　　　　　　　　WEB-INF	web应用的配置信息文件夹（WEB-INF下的所有东西都是受保护，客户不能直接访问）
+　　　　　　　　　　lib	引入的第三方包	
+　　　　　　　　　　web.xml	web的配置信息
+　　　　　　部署以后：
+　　　　　　　　FristWeb：
+　　　　　　　　　　WebContent:	网页以及一些静态文件
+　　　　　　　　　　META-INF
+　　　　　　　　　　WEB-INF	web应用的配置信息文件夹（WEB-INF下的所有东西都是受保护，客户不能直接访问）
+　　　　　　　　　　　　classes java文件全类名存储；把classes目录也叫作类路径
+　　　　　　　　　　　　lib	引入的第三方包	
+　　　　　　　　　　　　web.xml	web的配置信息
+　　　　　　　　　　　　index.html
+　　　　　　项目部署是把webContent下面的所有内容发布
+
+
+HTTP协议
+
+　　1、简介：
+　　　　超文本传输协议；
+　　　　规定浏览器和服务器之间的传输规则。
+　　　　　　https
+
+　　2、浏览器-》服务器传输 请求报文
+　　　　服务器-》浏览器回传 响应报文
+
+　　3、请求报文
+　　　　请求首行
+　　　　请求头：	键值对 键:值
+　　　　空行
+　　　　请求体
+
+　　　　get请求：将请求的数据放在了url上。不安全。不能提交大量数据
+　　　　post请求：请求体里面封装的是浏览器要提交给服务器的数据。看起来安全。可以提交大量数据
+
+　　　　Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4
+　　　　If-None-Match: W/"145-1464414135386"
+　　　　If-Modified-Since: Sat, 28 May 2016 05:42:15 GMT
+
+ 
+
+　　　　请求报文的格式：
+　　　　请求首行； GET /FirstWeb/index.html HTTP/1.1 请求方法 资源路径 协议版本
+　　　　请求头信息；请求的头部信息。
+　　　　Host: localhost:8080 我请求的是哪个服务器
+　　　　Connection: keep-alive
+　　　　Cache-Control: max-age=0
+　　　　Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+　　　　表示我可以接受的内容类型
+
+　　　　Upgrade-Insecure-Requests: 1
+
+　　　　User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36
+　　　　用户代理：用户客户端的详细信息
+
+　　　　Accept-Encoding: gzip, deflate, sdch
+
+　　　　Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4
+
+　　　　If-None-Match: W/"145-1464414135386"
+　　　　If-Modified-Since: Sat, 28 May 2016 05:42:15 GMT
+
+　　　　get请求没有请求空行和请求体。post提交有空行和请求体
+　　　　空行；
+　　　　请求体；
+
+
+　　　　post请求报文：
+　　　　POST /regist HTTP/1.1
+　　　　Host: localhost:8080
+　　　　User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0
+　　　　Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+　　　　Accept-Language: en-us,zh-cn;q=0.8,zh;q=0.5,en;q=0.3
+　　　　Accept-Encoding: gzip, deflate
+　　　　Connection: keep-alive
+　　　　Content-Type: application/x-www-form-urlencoded
+　　　　Content-Length: 12
+
+　　　　username=dsa&passowrd=1234
+
+　　　　post请求将请求数据放在请求报文的请求体里
+
+　　　　post请求可以提交大量内容
+　　　　get请求不可以提交大量内容
+
+　　　　请求首行
+　　　　请求头（键值对）
+　　　　空行
+　　　　请求体
+
+　　4、响应报文
+　　　　响应首行： 协议版本号 响应状态码 提示信息
+　　　　响应头：	键值对 键:值 Content-type:响应内容的类型
+　　　　空行
+　　　　响应体：（服务器传递给客户端要使用的html页面等数据）
+
+　　
+
+　　　　HTTP/1.1 200 OK 协议版本 响应状态码 响应提示信息
+　　　　Server: Apache-Coyote/1.1	
+　　　　Accept-Ranges: 998847bytes
+　　　　ETag: W/"273-1464417599486"
+　　　　Last-Modified: Sat, 28 May 2016 06:39:59 GMT
+
+　　　　Content-Type: text/html	内容类型：表示服务器传回的数据的内容类型
+　　　　Content-Length: 273	内容长度：响应的数据长度
+　　　　Date: Sat, 28 May 2016 06:53:21 GMT
+
+　　　　<!DOCTYPE html>
+　　　　<html>
+　　　　　　<head>
+　　　　　　　　<meta charset="UTF-8">
+　　　　　　　　<title>Insert title here</title>
+　　　　　　</head>
+　　　　　　<body>
+　　　　　　　　<h1>HelloWorld</h1>
+　　　　　　　　<form action="http://localhost:8080/regist">
+　　　　　　　　　　用户名<input type="text" name="username"/>
+　　　　　　　　　　<input type="submit"/>
+　　　　　　　　</form>
+　　　　　　</body>
+　　　　</html>
+
+　　　　以2开始的状态码 都表示的是成功
+　　　　以3开始的状态码 都表示的是需要重新请求另外一个资源
+　　　　以4开始的状态码 都表示资源未找到（请求地址写错了），服务器启动失败
+　　　　以5开始的状态码 都表示服务器内部出错（代码错了）

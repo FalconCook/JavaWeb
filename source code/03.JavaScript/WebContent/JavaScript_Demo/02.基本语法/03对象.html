@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>对象</title>
+<script type="text/javascript">
+	//创建对象的两种方式
+	//第一种方式
+	var obj = new Object();
+	
+	//第二种方式	创建出来的对象如何添加属性和方法
+	var obj2 = {};
+	//alert(obj2);
+	
+	//动态的向对象中添加属性
+	obj2.name = "猪八戒";
+	
+	//获取属性值
+	//对象.属性名
+	obj2.work = function(){
+		alert("我要工作");	
+	}
+	
+	obj2.work()
+	//alert();
+	
+	//3、在声明时就为对象添加上属性和方法 属性名：属性值，属性名：属性值，属性名：属性值
+	var obj3 = {name:"猪八戒",age:500,work:function(){
+					alert("吃睡");
+				}};
+	
+	//alert(obj3.name);
+	obj3.work();
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

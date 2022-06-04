@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event</title>
+<script type="text/javascript">
+	/*
+	动态的为元素绑定事件(推荐)
+	1、找到元素
+	2、为元素相应的事件属性赋值一个方法
+	3、当事件发生浏览器会自动调用
+	window.onload:浏览器加载完成整个页面的时候调用后面的方法
+	*/
+	window.onload = function(){
+		//1、找到元素
+		var btn = document.getElementById("btnId");
+		//2、为元素绑定事件
+		btn.onclick = function(){
+			alert("啊哈哈。。");
+		}
+	} 
+	
+	
+	
+</script>
+</head>
+<body>
+	<!-- 在标签的事件属性中编写js代码 调用方法-声明变量 -->
+	<button id="btnId" onclick="alert('HelloWorld')">SayHello</button>
+</body>
+</html>

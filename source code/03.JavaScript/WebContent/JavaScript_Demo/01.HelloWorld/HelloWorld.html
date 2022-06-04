@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HelloWorld</title>
+<!-- JavaScript运行在浏览器端的脚本语言 -->
+<!-- 需要在script标签里面编写JavaScript代码 -->
+<script type="text/javascript">
+	//js代码
+	//调用window对象的属性，为window的onload属性赋了一个值，这个值还是方法
+	window.onload = function(){
+		//调用document的getElementById方法，把这个方法的返回值，赋值给btn
+		var btn = document.getElementById("btnId");
+		//调用btn的onclick属性 给btn的onlick又赋值了一个方法
+		btn.onclick = function(){
+			//弹窗函数
+			alert("Hello");
+		};
+	};
+</script>
+
+<!-- 可以通过引入外部的js文件，通过script标签的src属性，指定外部js文件的位置 -->
+<script type="text/javascript" src="test.js"></script>
+</head>
+<body>
+	<button id="btnId">SayHello</button>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load02</title>
+<!-- 写在script标签内：无法获取button
+原因就是：
+浏览器是顺序加载
+ -->
+<script type="text/javascript">
+	var btn = document.getElementById("btnId");
+	alert(btn);
+</script>
+</head>
+<body>
+	<button id="btnId">SayHello</button>
+</body>
+</html>

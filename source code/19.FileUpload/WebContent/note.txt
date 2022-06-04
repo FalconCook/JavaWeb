@@ -1,0 +1,62 @@
+1、文件上传
+	1）、上传用户头像
+	2）、某些东西的详细信息中的图片
+	
+	文件上传到？
+	数据库？（文本字段）
+		缺点：占空间、存取慢。。。
+		
+	服务器？
+		正常我们将文件都上传到服务区：
+		静态文件服务器：图片、视频、js
+		我们将上传的文件放在项目中某个地方
+		
+	文件上传准备：
+		1、在表单上有上传按钮。。。<input name="headerImg" type="file"/>
+		2、所有的文件上传，mehtod=post
+		3、文件上传的表单。enctype="multipart/form-data"
+		
+		点击提交：
+			将文件的流以及表单的所有内容都放在流里提交。
+			request.getParameter();对表单文件上传的提交无效
+			
+	上传：
+		工具：commons-fileupload-1.3.1.jar、commons-io-2.4.jar
+		
+	DiskFileItemFactory:	工厂类
+	FileItem:	文件项
+	ServletFileUpload:	Servlet文件上传
+	
+	1、创建工厂
+	DiskFileItemFactory factory = new DiskFileItemFactory();
+	2、创建专门用来解析Servlet文件上传的对象
+	ServletFileUpload fileUpload = new ServletFileUpload(factory);
+	3、解析请求，把表单的所有部件封装返回，List<FileItem>,每个部件就是一个FileItem
+	List<FileItem> list = fileUpload.parseRequest(request);
+	4、解析每一个部件FileItem
+	for (FileItem item : items) {
+		//判断是否为文件上传的表单项 isFormField->true代表就是一个普通的表单项，false代表文件上传项
+		if(item.isFormField()) {
+			//处理普通表单项
+			String name = item.getFieldName();//获取表单的name值
+			String value = item.getString("utf-8");//获取表单的value值
+		}else {
+			//1、把文件流保存
+			//1）、保存路径。动态获取服务器某个文件夹路径，/代表当前项目
+			String location = getServletContext().getRealPath("/uploads");
+			//2）、文件的命名
+			String fieldName = fileItem.getFieldName();
+				//1）、文件名重复问题
+				String prefix = UUID.randomUUID().toString().replaceAll("-", "");
+				//2）、浏览器路径问题，ie会把路径传过来，而不是文件名
+				int index = fileName.lastIndexOf("\\");
+				fileName = fileName.substring(of+1);
+				fileName = prefix+"_"+fileName;
+			//3、保存文件的流
+			InputStream is = item.getInputStream();
+			FileOutputStream os = new FileOutputStream(realPath+"/"+name);
+			IOUtils.copy(is, os);
+			//4、关闭输出流
+			os.close();
+		}
+	}

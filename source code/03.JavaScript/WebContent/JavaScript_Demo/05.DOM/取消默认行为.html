@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		var aEle = document.getElementById("aID");
+		aEle.onclick = function(){
+			//alert("我被点击了");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+<a href="1.dom查询.html" id="aID" onclick="return false;">我是链接</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HellojQuery</title>
+<!-- <script type="text/javascript">
+	window.onload = function(){
+		var btnEle = document.getElementById("btnId");
+		btnEle.onclick = function(){
+			alert("hello");
+		}
+	}
+</script> -->
+<!-- 1、jQuery是JavaScript的第三方库  
+	2、引入jquery-1.7.2.js、jquery-1.7.2.min.js
+	jQuery标签
+	<script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+-->
+<script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	//js代码
+	//$():调用$方法 ，$()：叫做jquery的核心函数
+	//为$()方法传入一个function(){}作为参数：就相当于window.οnlοad=function(){} 
+	$(function(){
+		//使用$()查找元素 使用click()绑定单机响应函数 把单机响应函数作为click()
+		//的参数传入即可
+		$("#btnId").click(function(){
+			alert("HelloWorld2");
+		});
+	});
+</script>
+</head>
+<body>
+	<button id="btnId">SayHello</button>
+</body>
+</html>

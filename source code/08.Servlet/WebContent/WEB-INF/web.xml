@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>08.Servlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>FirstServlet</servlet-name>
+    <servlet-class>com.cracker.servlet.MyFirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FirstServlet</servlet-name>
+    <url-pattern>/helloWorld</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>com.cracker.servlet.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <!-- http://localhost:8080/08.Servlet/HelloServlet
+    url:资源定位符。
+    	静态资源：实际的文件 .html .css .png
+    	动态资源：我们请求动态资源是启动一段程序来处理
+     -->
+    <url-pattern>/HelloServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ConfigServlet</servlet-name>
+    <servlet-class>com.cracker.servlet.ConfigServlet</servlet-class>
+    <!-- 配置servlet的初始化参数 -->
+    <init-param>
+      <param-name>username</param-name>
+      <param-value>chen</param-value>
+    </init-param>
+    <init-param>
+      <param-name>passowrd</param-name>
+      <param-value>123456</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfigServlet</servlet-name>
+    <url-pattern>/configServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ContextServlet</servlet-name>
+    <servlet-class>com.cracker.servlet.ContextServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContextServlet</servlet-name>
+    <url-pattern>/contextServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PathServlet</display-name>
+    <servlet-name>PathServlet</servlet-name>
+    <servlet-class>com.cracker.servlet.PathServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PathServlet</servlet-name>
+    <url-pattern>/PathServlet</url-pattern>
+  </servlet-mapping>
+  <!-- web的初始化参数 -->
+  <context-param>
+    <param-name>user</param-name>
+    <param-value>root</param-value>
+  </context-param>
+</web-app>
